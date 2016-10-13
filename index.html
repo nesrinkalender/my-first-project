@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Hello Tallinn!</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="styles/style.css">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script>
+      $(document).ready(function(){
+        $(".text button").click(function(){
+          $.ajax({
+              url: "http://pokeapi.co/api/v2/pokemon/1",
+              method: "POST"
+            }).done(function( msg ) {
+              console.log(msg)
+              $(".text h2").html(msg.name)
+            }).fail(function( jqXHR, textStatus ) {
+              alert( "Request failed: " + textStatus );
+            });
+        });
+
+
+      });
+    </script>
+  </head>
+  <body>
+    <section class="enter-screen">
+        <div class="text">
+          <h2>Geeky Weekly</h2>
+          <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          <button>START</button>
+        </div>
+    </section>
+  </body>
+</html>
